@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe UserRole do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "Associations" do
+	  context "associations" do
+      it { should belong_to :user }
+      it { should belong_to :role }
+    end
+  end
 end
