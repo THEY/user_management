@@ -13,3 +13,4 @@ group :test do
    gem 'capybara'
 end
 gem "rails_best_practices"
+gem "simplecov"

@@ -1,0 +1,66 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/saurabh/for_development/dev/user_management/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/saurabh/for_development/dev/user_management/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saurabh/for_development/dev/user_management/app/models/role.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/saurabh/for_development/dev/user_management/app/models/user.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/saurabh/for_development/dev/user_management/app/models/user_role.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1343768683
+  }
+}
