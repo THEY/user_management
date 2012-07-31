@@ -24,5 +24,21 @@ class User < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX },
     presence: true, uniqueness: true
   
-
+  private
+  def self.filter_by_conditions(columns, params)
+    conditions = ""
+    filters = JSON.parse(params["filters"])
+    query_joiner = filters["groupOp"]
+    query = []
+    unless filters["rules"].blank?
+      filters["rules"].each do |rule|
+        field = rule["field"]
+        data =  rule["data"]
+        query << " #{field} LIKE '%#{data}%'"
+      end
+    end
+    conditions = query.join("#{query_joiner}")
+    conditions.chomp("AND ")
+  end
+  
 end

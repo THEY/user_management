@@ -63,3 +63,71 @@ describe User do
 	  it { should have_many(:roles).through(:user_roles) }
   end
 end
+
+describe User, "Should be able to create conditions when filtering" do
+  before(:each) do
+    @columns = [:id, :username,:email, :first_name, :last_name]
+    @filter_params = {"_search"=>"true", "nd"=>"1343748766898", "rows"=>"20", "page"=>"1"}
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"a\"}]}"
+  end
+
+  it 'Should have valid json' do
+    JSON.parse(@filter_params["filters"]).should be_instance_of(Hash)
+  end
+
+  it 'Should have valid filter params' do
+    @filter_params["filters"].should_not be_nil
+  end
+
+  it 'Should have valid filter rules' do
+    filters = JSON.parse(@filter_params["filters"])
+    filters["rules"].should_not be_nil
+  end
+
+  it 'Should have valid filter rules params' do
+    filters = JSON.parse(@filter_params["filters"])
+    filters["rules"][0]["field"].should == "users.username"
+    filters["rules"][0]["data"].should == "a"
+  end
+
+  it 'Should have valid filter group' do
+    filters = JSON.parse(@filter_params["filters"])
+    filters["groupOp"].should == 'AND'
+  end
+
+  it 'Should filter by user username ' do
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.username LIKE '%a%'"
+  end
+
+  it 'Should filter by user id' do
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.id\",\"op\":\"bw\",\"data\":\"1\"}]}"
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.id LIKE '%1%'"
+  end
+
+
+  it 'Should filter by user email' do
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.email\",\"op\":\"bw\",\"data\":\"abc\"}]}"
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.email LIKE '%abc%'"
+  end
+
+  it 'Should filter by user name' do
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"a\"}]}"
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.username LIKE '%a%'"
+  end
+  
+  it 'Should filter by user first_name' do
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.first_name\",\"op\":\"bw\",\"data\":\"a\"}]}"
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.first_name LIKE '%a%'"
+  end
+
+  it 'Should filter by user last_name' do
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.last_name\",\"op\":\"bw\",\"data\":\"a\"}]}"
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.last_name LIKE '%a%'"
+  end
+
+ # it 'Should filter by combinations of user id, username, email, first_name and last_name' do
+ #   @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.id\",\"op\":\"bw\",\"data\":\"1\"},{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"a\"},{\"field\":\"users.pages\",\"op\":\"bw\",\"data\":\"1\"},{\"field\":\"authors.name\",\"op\":\"bw\",\"data\":\"a\"}]}"
+ #   User.send("filter_by_conditions", @columns, @filter_params).should  == " users.id LIKE '%1%'AND users.username LIKE '%a%'AND users.pages LIKE '%1%'AND authors.name LIKE '%a%'"
+ # end
+
+end
