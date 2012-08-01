@@ -11,6 +11,7 @@ group :test do
    gem 'factory_girl_rails'
    gem 'shoulda'
    gem 'capybara'
+   gem "shoulda-matchers"
 end
 gem "rails_best_practices"
 gem "simplecov"
