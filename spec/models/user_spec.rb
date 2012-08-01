@@ -248,22 +248,3 @@ describe User, "search_get_json with 40 rows per page" do
   end
 
 end
-=begin
-describe User, "search_get_json, search for email for letter a" do
-  before(:each) do
-    @users =[]
-    ('a'..'z').to_a.each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user")}
-    @params = {"_search"=>"true", "rows"=>"20", "page"=>"1", "sidx"=>"id", "sord"=>"desc", "filters"=>"{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"s_user\"}]}"}
-    @columns = [:id, :username,:email, :first_name, :last_name]
-  end
-
-  it "Should return valid Json at page load with no search params" do
-    @valid_json = JSON.parse(User.search_get_json(@columns, 1, 20, @params))
-    @valid_json["page"].should == "1"
-    @valid_json["total"].should == 1
-    @valid_json["records"].should == "1"
-    @valid_json["rows"].should have(1).items
-  end
-
-end
-=end

@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-01T09:01:30-04:00">2012-08-01T09:01:30-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-01T10:15:20-04:00">2012-08-01T10:15:20-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -34,7 +34,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         14.66
+         15.63
        </span>
     </span> hits/line)
   </h2>
@@ -76,7 +76,7 @@
         <td>14</td>
         <td>14</td>
         <td>0</td>
-        <td>2.4</td>
+        <td>3.6</td>
       </tr>
       
       <tr>
@@ -116,7 +116,7 @@
         <td>56</td>
         <td>55</td>
         <td>1</td>
-        <td>95.2</td>
+        <td>100.8</td>
       </tr>
       
       <tr>
@@ -142,7 +142,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.7
+         2.3
        </span>
     </span> hits/line)
   </h2>
@@ -184,7 +184,7 @@
         <td>14</td>
         <td>14</td>
         <td>0</td>
-        <td>2.4</td>
+        <td>3.6</td>
       </tr>
       
     </tbody>
@@ -199,7 +199,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         32.4
+         34.27
        </span>
     </span> hits/line)
   </h2>
@@ -241,7 +241,7 @@
         <td>56</td>
         <td>55</td>
         <td>1</td>
-        <td>95.2</td>
+        <td>100.8</td>
       </tr>
       
       <tr>
@@ -517,32 +517,32 @@
           <code class="ruby">    #search method will search model based on the params</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="6">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="6">
+          <span class="hits">6</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="7">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="7">
+          <span class="hits">6</span>
           
           <code class="ruby">      format.html {}</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="8">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="8">
+          <span class="hits">6</span>
           
           <code class="ruby">      format.json {</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="9">
+          <span class="hits">4</span>
           
           <code class="ruby">        @users = User.search_get_json(@index_columns, @current_page, @rows_per_page,params)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="10">
+          <span class="hits">4</span>
           
           <code class="ruby">        render json: @users</code>
         </li>
@@ -607,20 +607,20 @@
           <code class="ruby">  def prepare_attributes</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="21">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="21">
+          <span class="hits">6</span>
           
           <code class="ruby">    @index_columns = [:id, :email,:username,:first_name,:last_name]</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="22">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="22">
+          <span class="hits">6</span>
           
           <code class="ruby">    @current_page = params[:page] ? params[:page].to_i : 1</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="23">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="6" data-linenumber="23">
+          <span class="hits">6</span>
           
           <code class="ruby">    @rows_per_page = params[:rows] ? params[:rows].to_i : 10</code>
         </li>
@@ -1015,8 +1015,8 @@
           <code class="ruby">   #Setting the default conditions for pagination are per page and current page</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="37">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="37">
+          <span class="hits">10</span>
           
           <code class="ruby">    conditions = {page: current_page, per_page: rows_per_page}</code>
         </li>
@@ -1027,8 +1027,8 @@
           <code class="ruby">    #changing value of id to users.id as search was giving an error because of joining more than 1 model.</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="39">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="39">
+          <span class="hits">10</span>
           
           <code class="ruby">    params[&quot;sidx&quot;] = 'users.id' if params[&quot;sidx&quot;].eql?(&quot;id&quot;)</code>
         </li>
@@ -1039,8 +1039,8 @@
           <code class="ruby">    #if order is given then use that for ordering (sorting) else use default sort</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="41">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="41">
+          <span class="hits">10</span>
           
           <code class="ruby">    conditions[:order] = params[&quot;sidx&quot;] + &quot; &quot; + params[&quot;sord&quot;] unless (params[:sidx].blank? || params[:sord].blank?)</code>
         </li>
@@ -1051,8 +1051,8 @@
           <code class="ruby">    #filter_by_conditions is called when search is true which returns a string of all columns which are searched.</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="43">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="43">
+          <span class="hits">10</span>
           
           <code class="ruby">    conditions[:conditions] = filter_by_conditions(index_columns, params) if params[:_search] == &quot;true&quot;</code>
         </li>
@@ -1063,8 +1063,8 @@
           <code class="ruby">    #using paginate method from will_paginate for pagination and searching</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="45">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="45">
+          <span class="hits">10</span>
           
           <code class="ruby">    results = self.paginate(conditions).includes(:roles)</code>
         </li>
@@ -1075,8 +1075,8 @@
           <code class="ruby">    #to_jqgrid_json method gives actual json which is required for showing data into grid</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="47">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="47">
+          <span class="hits">10</span>
           
           <code class="ruby">    self.to_jqgrid_json(results, index_columns, current_page, rows_per_page, results.total_entries)</code>
         </li>
@@ -1249,8 +1249,8 @@
           <code class="ruby">    # setting basic page#, total entries and records so can be used by jqGrid</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="76">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="32" data-linenumber="76">
+          <span class="hits">32</span>
           
           <code class="ruby">    json = %Q({&quot;page&quot;:&quot;#{current_page}&quot;,&quot;total&quot;:#{total/per_page.to_i+1},&quot;records&quot;:&quot;#{total}&quot;)</code>
         </li>
@@ -1261,8 +1261,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="78">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="32" data-linenumber="78">
+          <span class="hits">32</span>
           
           <code class="ruby">    if total &gt; 0</code>
         </li>
@@ -1273,20 +1273,20 @@
           <code class="ruby">      # setting rows start</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="80">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="30" data-linenumber="80">
+          <span class="hits">30</span>
           
           <code class="ruby">      json &lt;&lt; %Q(,&quot;rows&quot;:[)</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="81">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="30" data-linenumber="81">
+          <span class="hits">30</span>
           
           <code class="ruby">      results.each do |elem|</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="82">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="82">
+          <span class="hits">152</span>
           
           <code class="ruby">        elem.id ||= index(elem)</code>
         </li>
@@ -1297,14 +1297,14 @@
           <code class="ruby">        #setting id column and now populating cells now.</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="84">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="84">
+          <span class="hits">152</span>
           
           <code class="ruby">        json &lt;&lt; %Q({&quot;id&quot;:&quot;#{elem.id}&quot;,&quot;cell&quot;:[)</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="85">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="85">
+          <span class="hits">152</span>
           
           <code class="ruby">        couples = elem.attributes.symbolize_keys</code>
         </li>
@@ -1315,32 +1315,32 @@
           <code class="ruby">        #populating attribute values</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="87">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="87">
+          <span class="hits">152</span>
           
           <code class="ruby">        attributes.each do |atr|</code>
         </li>
       
-        <li class="covered" data-hits="720" data-linenumber="88">
-          <span class="hits">720</span>
+        <li class="covered" data-hits="760" data-linenumber="88">
+          <span class="hits">760</span>
           
           <code class="ruby">          value =  elem.send(atr)</code>
         </li>
       
-        <li class="covered" data-hits="720" data-linenumber="89">
-          <span class="hits">720</span>
+        <li class="covered" data-hits="760" data-linenumber="89">
+          <span class="hits">760</span>
           
           <code class="ruby">          if value and value.is_a?(String)</code>
         </li>
       
-        <li class="covered" data-hits="576" data-linenumber="90">
-          <span class="hits">576</span>
+        <li class="covered" data-hits="608" data-linenumber="90">
+          <span class="hits">608</span>
           
           <code class="ruby">            value = escape_json(value)</code>
         </li>
       
-        <li class="covered" data-hits="576" data-linenumber="91">
-          <span class="hits">576</span>
+        <li class="covered" data-hits="608" data-linenumber="91">
+          <span class="hits">608</span>
           
           <code class="ruby">            json &lt;&lt; %Q(#{value},)</code>
         </li>
@@ -1351,8 +1351,8 @@
           <code class="ruby">          else</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="93">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="93">
+          <span class="hits">152</span>
           
           <code class="ruby">            json &lt;&lt; %Q(&quot;#{value}&quot;,)</code>
         </li>
@@ -1375,20 +1375,20 @@
           <code class="ruby">        #Adding roles joining by , and link to edit method</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="97">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="97">
+          <span class="hits">152</span>
           
           <code class="ruby">        json &lt;&lt; %Q(&quot;#{elem.roles.collect(&amp;:name).join(&quot;,&quot;)}&quot;,)</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="98">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="98">
+          <span class="hits">152</span>
           
           <code class="ruby">        json &lt;&lt; %Q(&quot;/users/#{elem.id}/edit&quot;,)</code>
         </li>
       
-        <li class="covered" data-hits="144" data-linenumber="99">
-          <span class="hits">144</span>
+        <li class="covered" data-hits="152" data-linenumber="99">
+          <span class="hits">152</span>
           
           <code class="ruby">        json.chop! &lt;&lt; &quot;]},&quot;</code>
         </li>
@@ -1399,14 +1399,14 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="101">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="30" data-linenumber="101">
+          <span class="hits">30</span>
           
           <code class="ruby">      json.chop! &lt;&lt; &quot;]&quot;</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="102">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="30" data-linenumber="102">
+          <span class="hits">30</span>
           
           <code class="ruby">      json &lt;&lt; &quot;}&quot;</code>
         </li>
@@ -1429,8 +1429,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="106">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="32" data-linenumber="106">
+          <span class="hits">32</span>
           
           <code class="ruby">    json</code>
         </li>
@@ -1453,14 +1453,14 @@
           <code class="ruby">  def self.escape_json(json)</code>
         </li>
       
-        <li class="covered" data-hits="580" data-linenumber="110">
-          <span class="hits">580</span>
+        <li class="covered" data-hits="612" data-linenumber="110">
+          <span class="hits">612</span>
           
           <code class="ruby">    if json</code>
         </li>
       
-        <li class="covered" data-hits="580" data-linenumber="111">
-          <span class="hits">580</span>
+        <li class="covered" data-hits="612" data-linenumber="111">
+          <span class="hits">612</span>
           
           <code class="ruby">      json.to_json</code>
         </li>
