@@ -8,5 +8,5 @@ UserManagement::Application.routes.draw do
       post 'post_data'
     end
   end
-
+  root to: "users#index"
 end
