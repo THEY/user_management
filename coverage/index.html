@@ -23,26 +23,26 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-07-31T22:01:20-04:00">2012-07-31T22:01:20-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-01T09:01:30-04:00">2012-08-01T09:01:30-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.61%</span></span>
+    (<span class="covered_percent"><span class="green">98.8%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         17.57
+         14.66
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>72</b> relevant lines. 
-    <span class="green"><b>71</b> lines covered</span> and
+    <b>83</b> relevant lines. 
+    <span class="green"><b>82</b> lines covered</span> and
     <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -72,11 +72,11 @@
       <tr>
         <td class="strong"><a href="#cb030c2abd07ab56dd8a7668c685e147115e9df7" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>3</td>
-        <td>3</td>
+        <td>26</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>2.4</td>
       </tr>
       
       <tr>
@@ -112,11 +112,11 @@
       <tr>
         <td class="strong"><a href="#8321df746bdcf7cf4cecac99fd01dff39cc97cf1" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">98.21 %</td>
-        <td>97</td>
+        <td>117</td>
         <td>56</td>
         <td>55</td>
         <td>1</td>
-        <td>117.0</td>
+        <td>95.2</td>
       </tr>
       
       <tr>
@@ -141,16 +141,16 @@
     (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="green">
+         1.7
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>2</b> files in total.
-    <b>5</b> relevant lines. 
-    <span class="green"><b>5</b> lines covered</span> and
+    <b>16</b> relevant lines. 
+    <span class="green"><b>16</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -180,11 +180,11 @@
       <tr>
         <td class="strong"><a href="#cb030c2abd07ab56dd8a7668c685e147115e9df7" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>3</td>
-        <td>3</td>
+        <td>26</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>2.4</td>
       </tr>
       
     </tbody>
@@ -199,7 +199,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         39.67
+         32.4
        </span>
     </span> hits/line)
   </h2>
@@ -237,11 +237,11 @@
       <tr>
         <td class="strong"><a href="#8321df746bdcf7cf4cecac99fd01dff39cc97cf1" class="src_link" title="app/models/user.rb">app/models/user.rb</a></td>
         <td class="green strong">98.21 %</td>
-        <td>97</td>
+        <td>117</td>
         <td>56</td>
         <td>55</td>
         <td>1</td>
-        <td>117.0</td>
+        <td>95.2</td>
       </tr>
       
       <tr>
@@ -478,8 +478,8 @@
     <h3>app/controllers/users_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -496,34 +496,148 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  def index</code>
+          <code class="ruby">  before_filter :prepare_attributes,only: [:index]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="3">
           
           
+          <code class="ruby">  # this is the action called for sorting, searching and pulling data to index</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def index</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">    #search method will search model based on the params</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="6">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    respond_to do |format|</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="7">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      format.html {}</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="8">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      format.json {</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="9">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @users = User.search_get_json(@index_columns, @current_page, @rows_per_page,params)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="10">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        render json: @users</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">      }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def prepare_attributes</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="21">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    @index_columns = [:id, :email,:username,:first_name,:last_name]</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="22">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    @current_page = params[:page] ? params[:page].to_i : 1</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="23">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    @rows_per_page = params[:rows] ? params[:rows].to_i : 10</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
@@ -691,577 +805,697 @@
           <code class="ruby">class User &lt; ActiveRecord::Base</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="2">
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby">  #accessible attributes for user model</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
           <code class="ruby">  attr_accessible :email, :first_name, :last_name, :username</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
+        <li class="never" data-hits="" data-linenumber="4">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  has_many :user_roles, dependent: :destroy</code>
+          <code class="ruby">  # users can have many roles and roles can have many users</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
+          <code class="ruby">  has_many :user_roles, dependent: :destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
           <code class="ruby">  has_many :roles, through: :user_roles</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="8">
           
-          <code class="ruby">  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-zA-Z\d\-.]+\.[a-zA-Z]+\z/</code>
+          
+          <code class="ruby">  #Creating regex constants which can be used across models.</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="9">
           
-          <code class="ruby">  ALPHA_ONLY_REGEX = /\A[a-zA-Z]+\z/</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
           
-          <code class="ruby">  ALPHA_NUM_REGEX = /\A[a-zA-Z0-9_]+\z/</code>
+          <code class="ruby">  # This can go on the a constants.rb in initializers but good to have here</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">  </code>
+          <code class="ruby">  # so can be reviewed for validations</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :first_name,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby">    format: { with: ALPHA_ONLY_REGEX },</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
-          
-          
-          <code class="ruby">    presence: true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates :last_name,</code>
+          <code class="ruby">  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-zA-Z\d\-.]+\.[a-zA-Z]+\z/</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  ALPHA_ONLY_REGEX = /\A[a-zA-Z]+\z/</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  ALPHA_NUM_REGEX = /\A[a-zA-Z0-9_]+\z/</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">    format: { with: ALPHA_ONLY_REGEX },</code>
+          <code class="ruby">  # first_name and last_name should be present always and have alpha reg-ex</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    presence: true</code>
+          <code class="ruby">  validates :first_name,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    format: { with: ALPHA_ONLY_REGEX },</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">  validates :username,</code>
+          
+          <code class="ruby">    presence: true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">    format: { with: ALPHA_NUM_REGEX },</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    presence: true, uniqueness: true</code>
+          <code class="ruby">  validates :last_name,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    format: { with: ALPHA_ONLY_REGEX },</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="23">
           
-          <code class="ruby">  validates :email,</code>
+          
+          <code class="ruby">    presence: true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">    format: { with: VALID_EMAIL_REGEX },</code>
+          <code class="ruby"># username should be present always, have alpha numeric reg-ex and should be unique</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    presence: true, uniqueness: true</code>
+          <code class="ruby">  validates :username,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">  </code>
+          <code class="ruby">    format: { with: ALPHA_NUM_REGEX },</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    presence: true, uniqueness: true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby"></code>
+          <code class="ruby"># email should be present always, has standard validation reg-ex and should be unique</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
+          <code class="ruby">  validates :email,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">    format: { with: VALID_EMAIL_REGEX },</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">    presence: true, uniqueness: true</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby"># This method returns a valid json output which is required by jQgrid</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
           <code class="ruby">  def self.search_get_json(index_columns, current_page, rows_per_page, params)</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="30">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    conditions = {page: current_page, per_page: rows_per_page}</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="31">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    params[&quot;sidx&quot;] = 'users.id' if params[&quot;sidx&quot;].eql?(&quot;id&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="32">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    conditions[:order] = params[&quot;sidx&quot;] + &quot; &quot; + params[&quot;sord&quot;] unless (params[:sidx].blank? || params[:sord].blank?)</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="33">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    conditions[:conditions] = filter_by_conditions(index_columns, params) if params[:_search] == &quot;true&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="34">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    results = self.paginate(conditions).includes(:roles)</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="35">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    self.to_jqgrid_json(results, index_columns, current_page, rows_per_page, results.total_entries)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
           
           
+          <code class="ruby">   #Setting the default conditions for pagination are per page and current page</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="37">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    conditions = {page: current_page, per_page: rows_per_page}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">    #changing value of id to users.id as search was giving an error because of joining more than 1 model.</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="39">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    params[&quot;sidx&quot;] = 'users.id' if params[&quot;sidx&quot;].eql?(&quot;id&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">    #if order is given then use that for ordering (sorting) else use default sort</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="41">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    conditions[:order] = params[&quot;sidx&quot;] + &quot; &quot; + params[&quot;sord&quot;] unless (params[:sidx].blank? || params[:sord].blank?)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">    #filter_by_conditions is called when search is true which returns a string of all columns which are searched.</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="43">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    conditions[:conditions] = filter_by_conditions(index_columns, params) if params[:_search] == &quot;true&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">    #using paginate method from will_paginate for pagination and searching</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="45">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    results = self.paginate(conditions).includes(:roles)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">    #to_jqgrid_json method gives actual json which is required for showing data into grid</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="47">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    self.to_jqgrid_json(results, index_columns, current_page, rows_per_page, results.total_entries)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  private</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def self.filter_by_conditions(columns, params)</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="40">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    conditions = &quot;&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="41">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    filters = JSON.parse(params[&quot;filters&quot;])</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="42">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    query_joiner = filters[&quot;groupOp&quot;]</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="43">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    query = []</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="44">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    unless filters[&quot;rules&quot;].blank?</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="45">
-          <span class="hits">14</span>
-          
-          <code class="ruby">      filters[&quot;rules&quot;].each do |rule|</code>
-        </li>
-      
-        <li class="covered" data-hits="20" data-linenumber="46">
-          <span class="hits">20</span>
-          
-          <code class="ruby">        field = rule[&quot;field&quot;]</code>
-        </li>
-      
-        <li class="covered" data-hits="20" data-linenumber="47">
-          <span class="hits">20</span>
-          
-          <code class="ruby">        data =  rule[&quot;data&quot;]</code>
-        </li>
-      
-        <li class="covered" data-hits="20" data-linenumber="48">
-          <span class="hits">20</span>
-          
-          <code class="ruby">        query &lt;&lt; &quot; #{field} LIKE '%#{data}%'&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.filter_by_conditions(columns, params)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">    #initializing conditions string</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="53">
           <span class="hits">14</span>
           
-          <code class="ruby">    conditions = query.join(&quot;#{query_joiner}&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="52">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    conditions.chomp(&quot;AND &quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    conditions = &quot;&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    #Parsing the filters params</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="55">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="14" data-linenumber="55">
+          <span class="hits">14</span>
           
-          <code class="ruby">  def self.to_jqgrid_json(results, attributes, current_page, per_page, total)</code>
+          <code class="ruby">    filters = JSON.parse(params[&quot;filters&quot;])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
-          <code class="ruby">    # setting basic page#, total entries and records so can be used by jqGrid</code>
+          <code class="ruby">    #fetching query_joiner which is AND</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="57">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="14" data-linenumber="57">
+          <span class="hits">14</span>
           
-          <code class="ruby">    json = %Q({&quot;page&quot;:&quot;#{current_page}&quot;,&quot;total&quot;:#{total/per_page.to_i+1},&quot;records&quot;:&quot;#{total}&quot;)</code>
+          <code class="ruby">    query_joiner = filters[&quot;groupOp&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="58">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    #Creating query based on columns</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="59">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="14" data-linenumber="59">
+          <span class="hits">14</span>
           
-          <code class="ruby">    if total &gt; 0</code>
+          <code class="ruby">    query = []</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">      # setting rows start</code>
+          <code class="ruby">    #Creating query based on columns</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="61">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="14" data-linenumber="61">
+          <span class="hits">14</span>
           
-          <code class="ruby">      json &lt;&lt; %Q(,&quot;rows&quot;:[)</code>
+          <code class="ruby">    unless filters[&quot;rules&quot;].blank?</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="62">
-          <span class="hits">26</span>
+        <li class="never" data-hits="" data-linenumber="62">
           
-          <code class="ruby">      results.each do |elem|</code>
+          
+          <code class="ruby">      #&quot;rules&quot; will have a hash to get the information about field and data</code>
         </li>
       
-        <li class="covered" data-hits="180" data-linenumber="63">
-          <span class="hits">180</span>
+        <li class="covered" data-hits="14" data-linenumber="63">
+          <span class="hits">14</span>
           
-          <code class="ruby">        elem.id ||= index(elem)</code>
+          <code class="ruby">      filters[&quot;rules&quot;].each do |rule|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="covered" data-hits="20" data-linenumber="64">
+          <span class="hits">20</span>
           
-          
-          <code class="ruby">        #setting id column and now populating cells now.</code>
+          <code class="ruby">        field = rule[&quot;field&quot;]</code>
         </li>
       
-        <li class="covered" data-hits="180" data-linenumber="65">
-          <span class="hits">180</span>
+        <li class="covered" data-hits="20" data-linenumber="65">
+          <span class="hits">20</span>
           
-          <code class="ruby">        json &lt;&lt; %Q({&quot;id&quot;:&quot;#{elem.id}&quot;,&quot;cell&quot;:[)</code>
+          <code class="ruby">        data =  rule[&quot;data&quot;]</code>
         </li>
       
-        <li class="covered" data-hits="180" data-linenumber="66">
-          <span class="hits">180</span>
+        <li class="covered" data-hits="20" data-linenumber="66">
+          <span class="hits">20</span>
           
-          <code class="ruby">        couples = elem.attributes.symbolize_keys</code>
+          <code class="ruby">        query &lt;&lt; &quot; #{field} LIKE '%#{data}%'&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">        #populating attribute values</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="180" data-linenumber="68">
-          <span class="hits">180</span>
+        <li class="never" data-hits="" data-linenumber="68">
           
-          <code class="ruby">        attributes.each do |atr|</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="900" data-linenumber="69">
-          <span class="hits">900</span>
+        <li class="never" data-hits="" data-linenumber="69">
           
-          <code class="ruby">          value =  elem.send(atr)</code>
+          
+          <code class="ruby">    #joining and returning the query</code>
         </li>
       
-        <li class="covered" data-hits="900" data-linenumber="70">
-          <span class="hits">900</span>
+        <li class="covered" data-hits="14" data-linenumber="70">
+          <span class="hits">14</span>
           
-          <code class="ruby">          if value and value.is_a?(String)</code>
+          <code class="ruby">    conditions = query.join(&quot;#{query_joiner}&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="720" data-linenumber="71">
-          <span class="hits">720</span>
+        <li class="covered" data-hits="14" data-linenumber="71">
+          <span class="hits">14</span>
           
-          <code class="ruby">            value = escape_json(value)</code>
+          <code class="ruby">    conditions.chomp(&quot;AND &quot;)</code>
         </li>
       
-        <li class="covered" data-hits="720" data-linenumber="72">
-          <span class="hits">720</span>
+        <li class="never" data-hits="" data-linenumber="72">
           
-          <code class="ruby">            json &lt;&lt; %Q(#{value},)</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby">          else</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="180" data-linenumber="74">
-          <span class="hits">180</span>
+        <li class="covered" data-hits="1" data-linenumber="74">
+          <span class="hits">1</span>
           
-          <code class="ruby">            json &lt;&lt; %Q(&quot;#{value}&quot;,)</code>
+          <code class="ruby">  def self.to_jqgrid_json(results, attributes, current_page, per_page, total)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="75">
           
           
-          <code class="ruby">          end</code>
+          <code class="ruby">    # setting basic page#, total entries and records so can be used by jqGrid</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="covered" data-hits="180" data-linenumber="77">
-          <span class="hits">180</span>
-          
-          <code class="ruby">        json &lt;&lt; %Q(&quot;#{elem.roles.collect(&amp;:name).join(&quot;,&quot;)}&quot;,)</code>
-        </li>
-      
-        <li class="covered" data-hits="180" data-linenumber="78">
-          <span class="hits">180</span>
-          
-          <code class="ruby">        json &lt;&lt; %Q(&quot;/users/#{elem.id}/edit&quot;,)</code>
-        </li>
-      
-        <li class="covered" data-hits="180" data-linenumber="79">
-          <span class="hits">180</span>
-          
-          <code class="ruby">        json.chop! &lt;&lt; &quot;]},&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="80">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="26" data-linenumber="81">
-          <span class="hits">26</span>
-          
-          <code class="ruby">      json.chop! &lt;&lt; &quot;]&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="26" data-linenumber="82">
-          <span class="hits">26</span>
-          
-          <code class="ruby">      json &lt;&lt; &quot;}&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="84">
-          <span class="hits">2</span>
-          
-          <code class="ruby">      json &lt;&lt; &quot;}&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="28" data-linenumber="86">
+        <li class="covered" data-hits="28" data-linenumber="76">
           <span class="hits">28</span>
           
-          <code class="ruby">    json</code>
+          <code class="ruby">    json = %Q({&quot;page&quot;:&quot;#{current_page}&quot;,&quot;total&quot;:#{total/per_page.to_i+1},&quot;records&quot;:&quot;#{total}&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="88">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="89">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="28" data-linenumber="78">
+          <span class="hits">28</span>
           
-          <code class="ruby">  def self.escape_json(json)</code>
+          <code class="ruby">    if total &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="724" data-linenumber="90">
-          <span class="hits">724</span>
+        <li class="never" data-hits="" data-linenumber="79">
           
-          <code class="ruby">    if json</code>
+          
+          <code class="ruby">      # setting rows start</code>
         </li>
       
-        <li class="covered" data-hits="724" data-linenumber="91">
-          <span class="hits">724</span>
+        <li class="covered" data-hits="26" data-linenumber="80">
+          <span class="hits">26</span>
           
-          <code class="ruby">      json.to_json</code>
+          <code class="ruby">      json &lt;&lt; %Q(,&quot;rows&quot;:[)</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="81">
+          <span class="hits">26</span>
+          
+          <code class="ruby">      results.each do |elem|</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="82">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        elem.id ||= index(elem)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby">        #setting id column and now populating cells now.</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="84">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        json &lt;&lt; %Q({&quot;id&quot;:&quot;#{elem.id}&quot;,&quot;cell&quot;:[)</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="85">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        couples = elem.attributes.symbolize_keys</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">        #populating attribute values</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="87">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        attributes.each do |atr|</code>
+        </li>
+      
+        <li class="covered" data-hits="720" data-linenumber="88">
+          <span class="hits">720</span>
+          
+          <code class="ruby">          value =  elem.send(atr)</code>
+        </li>
+      
+        <li class="covered" data-hits="720" data-linenumber="89">
+          <span class="hits">720</span>
+          
+          <code class="ruby">          if value and value.is_a?(String)</code>
+        </li>
+      
+        <li class="covered" data-hits="576" data-linenumber="90">
+          <span class="hits">576</span>
+          
+          <code class="ruby">            value = escape_json(value)</code>
+        </li>
+      
+        <li class="covered" data-hits="576" data-linenumber="91">
+          <span class="hits">576</span>
+          
+          <code class="ruby">            json &lt;&lt; %Q(#{value},)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="92">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">          else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="93">
+        <li class="covered" data-hits="144" data-linenumber="93">
+          <span class="hits">144</span>
           
-          
-          <code class="ruby">      ''</code>
+          <code class="ruby">            json &lt;&lt; %Q(&quot;#{value}&quot;,)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="94">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">          end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="95">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="96">
           
           
+          <code class="ruby">        #Adding roles joining by , and link to edit method</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="97">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        json &lt;&lt; %Q(&quot;#{elem.roles.collect(&amp;:name).join(&quot;,&quot;)}&quot;,)</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="98">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        json &lt;&lt; %Q(&quot;/users/#{elem.id}/edit&quot;,)</code>
+        </li>
+      
+        <li class="covered" data-hits="144" data-linenumber="99">
+          <span class="hits">144</span>
+          
+          <code class="ruby">        json.chop! &lt;&lt; &quot;]},&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="100">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="101">
+          <span class="hits">26</span>
+          
+          <code class="ruby">      json.chop! &lt;&lt; &quot;]&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="102">
+          <span class="hits">26</span>
+          
+          <code class="ruby">      json &lt;&lt; &quot;}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="103">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="104">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      json &lt;&lt; &quot;}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="28" data-linenumber="106">
+          <span class="hits">28</span>
+          
+          <code class="ruby">    json</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="109">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.escape_json(json)</code>
+        </li>
+      
+        <li class="covered" data-hits="580" data-linenumber="110">
+          <span class="hits">580</span>
+          
+          <code class="ruby">    if json</code>
+        </li>
+      
+        <li class="covered" data-hits="580" data-linenumber="111">
+          <span class="hits">580</span>
+          
+          <code class="ruby">      json.to_json</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="112">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="113">
+          
+          
+          <code class="ruby">      ''</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="114">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="116">
+          
+          
           <code class="ruby">  </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby">end</code>

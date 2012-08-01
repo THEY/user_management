@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require grid.locale-en
+//= require jquery-ui.custom.min
+//= require jquery.contextmenu
+//= require jquery.layout
+//= require jquery.tablednd
+//= require ui.multiselect
+//= require jquery.jqGrid.min
+//= require users

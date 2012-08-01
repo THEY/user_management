@@ -136,7 +136,7 @@ describe User, "to_jqgrid_json" do
 
   before(:each) do
     @users =[]
-    2.times { |i| @users << FactoryGirl.create(:user) }
+    ['a','b'].each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user",roles: [FactoryGirl.create(:role,name: "#{i}_role")]) }
     @columns = [:id, :username,:email, :first_name, :last_name]
     @filter_params = {"_search"=>"false", "nd"=>"1343748766898", "rows"=>"20", "page"=>"1"}
     @valid_json = JSON.parse(User.send("to_jqgrid_json", @users, @columns, 1, 20, 2))
@@ -160,11 +160,11 @@ describe User, "to_jqgrid_json" do
   end
   
   it "should have 2 rows array object" do
-    #"rows"=>[
-    #{"id"=>"1", "cell"=>["1", "person5", "person_5@example.com", "abc", "xyz", "role5", "/users/1/edit"]},
-    #{"id"=>"2", "cell"=>["2", "person6", "person_6@example.com", "abc", "xyz", "role6", "/users/2/edit"]}
-    #]
     @valid_json["rows"].should have(2).items
+  end
+
+  it "Expected JSON returned from to_jqgrid_json" do
+    @valid_json.should == {"page"=>"1", "total"=>1, "records"=>"2", "rows"=>[{"id"=>"1", "cell"=>["1", "a_user", "a@adomain.com", "abc", "xyz", "a_role", "/users/1/edit"]}, {"id"=>"2", "cell"=>["2", "b_user", "b@bdomain.com", "abc", "xyz", "b_role", "/users/2/edit"]}]}
   end
 
   it "rows array should have valid keys" do
@@ -247,7 +247,7 @@ describe User, "search_get_json with 40 rows per page" do
   end
 
 end
-
+=begin
 describe User, "search_get_json, search for email for letter a" do
   before(:each) do
     @users =[]
@@ -265,3 +265,4 @@ describe User, "search_get_json, search for email for letter a" do
   end
 
 end
+=end
