@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
         attributes.each do |atr|
           value =  elem.send(atr)
           if value and value.is_a?(String)
-            value = escape_json(value)
+            value = value.to_json
             json << %Q(#{value},)
           else
             json << %Q("#{value}",)
@@ -106,12 +106,5 @@ class User < ActiveRecord::Base
     json
   end
 
-  def self.escape_json(json)
-    if json
-      json.to_json
-    else
-      ''
-    end
-  end
   
 end

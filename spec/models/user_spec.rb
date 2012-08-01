@@ -192,17 +192,6 @@ describe User, "to_jqgrid_json with 0 records" do
   end
 end
 
-describe User, "escape_json" do
-  it "should return '' if parameter passed is ''" do
-    User.send("escape_json", '').should eql("\"\"")
-  end
-
-  it "should return json if valid json is sent" do
-    User.send("escape_json", 'role: {name: manager}').should eql("\"role: {name: manager}\"")
-  end
- 
-end
-
 describe User, "search_get_json" do
   before(:each) do
     #search_get_json(index_columns, current_page, rows_per_page, params)
