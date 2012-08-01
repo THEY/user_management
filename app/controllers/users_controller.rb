@@ -98,12 +98,14 @@ class UsersController < ApplicationController
   end
   
   private
-
+#preparing current page and rows per page attributes to can be sent to pagination
   def prepare_attributes
     @current_page = params[:page] ? params[:page].to_i : 1
     @rows_per_page = params[:rows] ? params[:rows].to_i : 10
   end
 
+#will be getting a different hash when called from html request hence created separated hash
+#TODO: try adding arrays to new and edit forms so can be saved as is without preparing.
   def prepare_params
     if params[:user]
       @user_params = { id: params[:id], email: params[:user][:email],username: params[:user][:username], first_name: params[:user][:first_name],last_name: params[:user][:last_name] ,role_ids: params[:user][:role_ids]}
@@ -111,5 +113,4 @@ class UsersController < ApplicationController
       @user_params = { id: params[:id], email: params[:email],username: params[:username], first_name: params[:first_name],last_name: params[:last_name]}
     end
   end
-  
 end
