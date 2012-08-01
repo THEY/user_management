@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   #accessible attributes for user model
-  attr_accessible :email, :first_name, :last_name, :username
+  attr_accessible :email, :first_name, :last_name, :username,:role_ids
   # users can have many roles and roles can have many users
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
   
 
 # This method returns a valid json output which is required by jQgrid
-  def self.search_get_json(index_columns, current_page, rows_per_page, params)
+  def self.search_get_json(current_page, rows_per_page, params)
+    index_columns = [:id, :email,:username,:first_name,:last_name]
    #Setting the default conditions for pagination are per page and current page
     conditions = {page: current_page, per_page: rows_per_page}
     #changing value of id to users.id as search was giving an error because of joining more than 1 model.

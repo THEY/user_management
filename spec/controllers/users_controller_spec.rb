@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe UsersController do
-
+  def valid_attributes
+    {email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name}
+  end
+  
   before(:each) do
     @users =[]
     ['a','b'].each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user",roles: [FactoryGirl.create(:role,name: "#{i}_role")]) }
@@ -87,6 +90,48 @@ describe UsersController do
     end
 
   end
+
+  describe "GET edit" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+    
+    it "assigns the requested user as @user" do
+      get :edit, {:id => @user.to_param}
+      assigns(:user).should eq(@user)
+    end
+  end
+
+  describe "PUT update" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+    
+    describe "with valid params" do
+      it "assigns the requested user as @user" do
+        put :update, {:id => @user.to_param, :user => valid_attributes}
+        assigns(:user).should eq(@user)
+      end
+
+      it "redirects to the user" do
+        put :update, {:id => @user.to_param, :user => valid_attributes}
+        response.should redirect_to(users_path)
+      end
+    end
+
+    describe "with invalid params" do
+      it "assigns the user as @user" do
+        put :update, {:id => @user.to_param, :user => {}}
+        assigns(:user).should eq(@user)
+      end
+
+      it "re-renders the 'edit' template" do
+        put :update, {:id => @user.to_param, :user => {}}
+        response.should render_template("edit")
+      end
+    end
+  end
+
 
   
 end

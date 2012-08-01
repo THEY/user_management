@@ -187,22 +187,21 @@ end
 
 describe User, "to_jqgrid_json with 0 records" do
   it "should have page parameter equal to 1" do
-    valid_json = JSON.parse(User.send("to_jqgrid_json", @users, @columns, 1, 20, 0))
+    index_columns = [:id, :email,:username,:first_name,:last_name]
+    valid_json = JSON.parse(User.send("to_jqgrid_json",@users, index_columns, 1, 20, 0))
     valid_json['records'].should == "0"
   end
 end
 
 describe User, "search_get_json" do
   before(:each) do
-    #search_get_json(index_columns, current_page, rows_per_page, params)
     @users =[]
     ('a'..'z').to_a.each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user")}
     @params = {"_search"=>"false", "rows"=>"20", "page"=>"1", "sidx"=>"id", "sord"=>"desc"}
-    @columns = [:id, :username,:email, :first_name, :last_name]
   end
   
   it "Should return valid Json at page load with no search params" do
-    @valid_json = JSON.parse(User.search_get_json(@columns, 1, 20, @params))
+    @valid_json = JSON.parse(User.search_get_json(1, 20, @params))
     @valid_json["page"].should == "1"
     @valid_json["total"].should == 2
     @valid_json["records"].should == "26"
@@ -210,7 +209,7 @@ describe User, "search_get_json" do
   end
   
   it "Should return valid JSON at page 2 load with no search params" do
-    @valid_json = JSON.parse(User.search_get_json(@columns, 2, 20, @params))
+    @valid_json = JSON.parse(User.search_get_json(2, 20, @params))
     @valid_json["page"].should == "2"
     @valid_json["total"].should == 2
     @valid_json["records"].should == "26"
@@ -226,7 +225,7 @@ describe User, "search_get_json with 40 rows per page" do
     ('a'..'z').to_a.each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user")}
     params = {"_search"=>"false", "rows"=>"40", "page"=>"1", "sidx"=>"id", "sord"=>"desc"}
     columns = [:id, :username,:email, :first_name, :last_name]
-    @valid_json = JSON.parse(User.search_get_json(columns, 1, 40, params))
+    @valid_json = JSON.parse(User.search_get_json(1, 40, params))
   end
 
   it "Should return valid Json at page load with no search params" do
