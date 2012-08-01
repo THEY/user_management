@@ -52,6 +52,34 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(@user_params)
+        format.html { redirect_to books_url, notice: 'User was successfully updated.' }
+        format.json {
+          @message<< ('add ok')
+          render json: [true,@message]
+        }
+      else
+        format.html {render action: "edit"}
+        format.json {
+          @message << @user.errors.full_messages.join(",")
+          render json: @message,status: :unprocessable_entity
+        }
+      end
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to books_url, notice: 'User was successfully updated.' }
+      format.json { render json: { status: 'success', data: @user } }
+    end
+  end
+  
   private
 
   def prepare_attributes
