@@ -5,6 +5,6 @@ class Role < ActiveRecord::Base
   has_many :users, through: :user_roles
 
   validates :name,
-    format: { with: User::ALPHA_ONLY_REGEX },
+    format: { with: User::ALPHA_NUM_REGEX },
     presence: true, uniqueness: true
 end

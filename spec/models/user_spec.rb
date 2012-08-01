@@ -125,9 +125,80 @@ describe User, "Should be able to create conditions when filtering" do
     User.send("filter_by_conditions", @columns, @filter_params).should  == " users.last_name LIKE '%a%'"
   end
 
- # it 'Should filter by combinations of user id, username, email, first_name and last_name' do
- #   @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.id\",\"op\":\"bw\",\"data\":\"1\"},{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"a\"},{\"field\":\"users.pages\",\"op\":\"bw\",\"data\":\"1\"},{\"field\":\"authors.name\",\"op\":\"bw\",\"data\":\"a\"}]}"
- #   User.send("filter_by_conditions", @columns, @filter_params).should  == " users.id LIKE '%1%'AND users.username LIKE '%a%'AND users.pages LIKE '%1%'AND authors.name LIKE '%a%'"
- # end
+  it 'Should filter by combinations of user id, username, email, first_name and last_name' do
+    @filter_params["filters"] = "{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.id\",\"op\":\"bw\",\"data\":\"1\"},{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"a\"},{\"field\":\"users.pages\",\"op\":\"bw\",\"data\":\"1\"},{\"field\":\"roles.name\",\"op\":\"bw\",\"data\":\"a\"}]}"
+    User.send("filter_by_conditions", @columns, @filter_params).should  == " users.id LIKE '%1%'AND users.username LIKE '%a%'AND users.pages LIKE '%1%'AND roles.name LIKE '%a%'"
+  end
 
+end
+
+describe User, "to_jqgrid_json" do
+
+  before(:each) do
+    @users =[]
+    2.times { |i| @users << FactoryGirl.create(:user) }
+    @columns = [:id, :username,:email, :first_name, :last_name]
+    @filter_params = {"_search"=>"false", "nd"=>"1343748766898", "rows"=>"20", "page"=>"1"}
+    @valid_json = JSON.parse(User.send("to_jqgrid_json", @users, @columns, 1, 20, 2))
+  end
+
+  it "should have page parameter present" do
+    @valid_json["page"].should_not be_nil
+  end
+
+  it "should have page parameter equal to 1" do
+    @valid_json["page"].should == "1"
+  end
+
+  it "should have records parameter present" do
+    @valid_json["records"].should_not be_nil
+  end
+
+
+  it "should have # of records as given" do
+    @valid_json["records"].should == "2"
+  end
+  
+  it "should have 2 rows array object" do
+    #"rows"=>[
+    #{"id"=>"1", "cell"=>["1", "person5", "person_5@example.com", "abc", "xyz", "role5", "/users/1/edit"]},
+    #{"id"=>"2", "cell"=>["2", "person6", "person_6@example.com", "abc", "xyz", "role6", "/users/2/edit"]}
+    #]
+    @valid_json["rows"].size.should == 2
+  end
+
+  it "rows array should have valid keys" do
+    @valid_json["rows"][0].keys.should == ["id","cell"]
+  end
+
+  it "cell should have 7 enties for id, username, email, first, last name, role and link to edit" do
+    @valid_json["rows"][0]["cell"].size.should == 7
+  end
+
+  it "should have rows array object" do
+    @valid_json["rows"][0].size.should == 2
+  end
+
+  it "should have # of records as given" do
+    @valid_json["total"].should == 1
+  end
+
+end
+
+describe User, "to_jqgrid_json with 0 records" do
+  it "should have page parameter equal to 1" do
+    valid_json = JSON.parse(User.send("to_jqgrid_json", @users, @columns, 1, 20, 0))
+    valid_json['records'].should == "0"
+  end
+end
+
+describe User, "escape_json" do
+  it "should return '' if parameter passed is ''" do
+    User.send("escape_json", '').should eql("\"\"")
+  end
+
+  it "should return json if valid json is sent" do
+    User.send("escape_json", 'role: {name: manager}').should eql("\"role: {name: manager}\"")
+  end
+ 
 end
