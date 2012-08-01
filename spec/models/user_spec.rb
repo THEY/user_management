@@ -164,7 +164,7 @@ describe User, "to_jqgrid_json" do
     #{"id"=>"1", "cell"=>["1", "person5", "person_5@example.com", "abc", "xyz", "role5", "/users/1/edit"]},
     #{"id"=>"2", "cell"=>["2", "person6", "person_6@example.com", "abc", "xyz", "role6", "/users/2/edit"]}
     #]
-    @valid_json["rows"].size.should == 2
+    @valid_json["rows"].should have(2).items
   end
 
   it "rows array should have valid keys" do
@@ -172,11 +172,11 @@ describe User, "to_jqgrid_json" do
   end
 
   it "cell should have 7 enties for id, username, email, first, last name, role and link to edit" do
-    @valid_json["rows"][0]["cell"].size.should == 7
+    @valid_json["rows"][0]["cell"].should have(7).items
   end
 
   it "should have rows array object" do
-    @valid_json["rows"][0].size.should == 2
+    @valid_json["rows"][0].should have(2).items
   end
 
   it "should have # of records as given" do
@@ -201,4 +201,67 @@ describe User, "escape_json" do
     User.send("escape_json", 'role: {name: manager}').should eql("\"role: {name: manager}\"")
   end
  
+end
+
+describe User, "search_get_json" do
+  before(:each) do
+    #search_get_json(index_columns, current_page, rows_per_page, params)
+    @users =[]
+    ('a'..'z').to_a.each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user")}
+    @params = {"_search"=>"false", "rows"=>"20", "page"=>"1", "sidx"=>"id", "sord"=>"desc"}
+    @columns = [:id, :username,:email, :first_name, :last_name]
+  end
+  
+  it "Should return valid Json at page load with no search params" do
+    @valid_json = JSON.parse(User.search_get_json(@columns, 1, 20, @params))
+    @valid_json["page"].should == "1"
+    @valid_json["total"].should == 2
+    @valid_json["records"].should == "26"
+    @valid_json["rows"].should have(20).items
+  end
+  
+  it "Should return valid Json at page 2 load with no search params" do
+    @valid_json = JSON.parse(User.search_get_json(@columns, 2, 20, @params))
+    @valid_json["page"].should == "2"
+    @valid_json["total"].should == 2
+    @valid_json["records"].should == "26"
+    @valid_json["rows"].should have(6).items
+  end
+end
+
+describe User, "search_get_json with 40 rows per page" do
+  before(:each) do
+    #search_get_json(index_columns, current_page, rows_per_page, params)
+    @users =[]
+    ('a'..'z').to_a.each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user")}
+    params = {"_search"=>"false", "rows"=>"40", "page"=>"1", "sidx"=>"id", "sord"=>"desc"}
+    columns = [:id, :username,:email, :first_name, :last_name]
+    @valid_json = JSON.parse(User.search_get_json(columns, 1, 40, params))
+  end
+
+  it "Should return valid Json at page load with no search params" do
+    @valid_json["page"].should == "1"
+    @valid_json["total"].should == 1
+    @valid_json["records"].should == "26"
+    @valid_json["rows"].should have(26).items
+  end
+
+end
+
+describe User, "search_get_json, search for email for letter a" do
+  before(:each) do
+    @users =[]
+    ('a'..'z').to_a.each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user")}
+    @params = {"_search"=>"true", "rows"=>"20", "page"=>"1", "sidx"=>"id", "sord"=>"desc", "filters"=>"{\"groupOp\":\"AND\",\"rules\":[{\"field\":\"users.username\",\"op\":\"bw\",\"data\":\"s_user\"}]}"}
+    @columns = [:id, :username,:email, :first_name, :last_name]
+  end
+
+  it "Should return valid Json at page load with no search params" do
+    @valid_json = JSON.parse(User.search_get_json(@columns, 1, 20, @params))
+    @valid_json["page"].should == "1"
+    @valid_json["total"].should == 1
+    @valid_json["records"].should == "1"
+    @valid_json["rows"].should have(1).items
+  end
+
 end

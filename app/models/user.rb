@@ -24,6 +24,17 @@ class User < ActiveRecord::Base
     format: { with: VALID_EMAIL_REGEX },
     presence: true, uniqueness: true
   
+
+
+  def self.search_get_json(index_columns, current_page, rows_per_page, params)
+    conditions = {page: current_page, per_page: rows_per_page}
+    params["sidx"] = 'users.id' if params["sidx"].eql?("id")
+    conditions[:order] = params["sidx"] + " " + params["sord"] unless (params[:sidx].blank? || params[:sord].blank?)
+    conditions[:conditions] = filter_by_conditions(index_columns, params) if params[:_search] == "true"
+    results = self.paginate(conditions).includes(:roles)
+    self.to_jqgrid_json(results, index_columns, current_page, rows_per_page, results.total_entries)
+  end
+  
   private
   def self.filter_by_conditions(columns, params)
     conditions = ""
