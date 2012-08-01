@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+@roles = []
+('a'..'z').to_a.each{ |i| @roles << Role.create(name: "#{i}_role")}
+100.times do
+@user = User.create(email: Faker::Internet.email, username: Faker::Internet.user_name, first_name: Faker::Name.first_name,last_name: Faker::Name.last_name)
+ user_roles = []
+ 2.times {user_roles << @roles.sort_by{rand}.last.id}
+ @user.role_ids = user_roles
+end

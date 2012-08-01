@@ -220,13 +220,14 @@ describe User, "search_get_json" do
     @valid_json["rows"].should have(20).items
   end
   
-  it "Should return valid Json at page 2 load with no search params" do
+  it "Should return valid JSON at page 2 load with no search params" do
     @valid_json = JSON.parse(User.search_get_json(@columns, 2, 20, @params))
     @valid_json["page"].should == "2"
     @valid_json["total"].should == 2
     @valid_json["records"].should == "26"
     @valid_json["rows"].should have(6).items
   end
+  
 end
 
 describe User, "search_get_json with 40 rows per page" do
