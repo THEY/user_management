@@ -14,13 +14,16 @@ group :test do
    gem 'factory_girl_rails'
    gem 'shoulda'
    gem 'capybara'
-   gem "shoulda-matchers"
-   gem "faker"
+   gem "shoulda-matchers"   
 end
 
 group :development do
   gem "simplecov"
   gem "rails_best_practices"
+end
+
+group :test, :development do
+  gem 'faker'
 end
 
 gem "haml-rails"
