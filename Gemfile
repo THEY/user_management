@@ -14,3 +14,4 @@ group :test do
 end
 gem "rails_best_practices"
 gem "simplecov"
+gem "haml-rails"
