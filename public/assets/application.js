@@ -12022,7 +12022,7 @@ c);delete a._alsoResize_;b("#gbox_"+c).resizable(a)}})}})})(jQuery);
       rowNum: 20,
       viewrecords: true,
       multiselect: false,
-      height: '400',
+      height: '450',
       rowList: [20, 40, 80],
       pager: '#pager',
       sortname: 'id',
@@ -12043,17 +12043,17 @@ c);delete a._alsoResize_;b("#gbox_"+c).resizable(a)}})}})})(jQuery);
         }, {
           name: 'username',
           index: 'users.username',
-          width: 200,
+          width: 110,
           editable: true
         }, {
           name: 'first_name',
           index: 'users.first_name',
-          width: 200,
+          width: 100,
           editable: true
         }, {
           name: 'last_name',
           index: 'users.last_name',
-          width: 200,
+          width: 120,
           editable: true
         }, {
           name: "roles.name",

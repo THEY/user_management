@@ -24,7 +24,6 @@ class UsersController < ApplicationController
       @message["status"] = ''
       create
     when 'edit'
-      @message = ''
       update
     when 'del'
       destroy
@@ -72,13 +71,14 @@ class UsersController < ApplicationController
       if @user.update_attributes(@user_params)
         format.html { redirect_to users_url, notice: 'User was successfully updated.' }
         format.json {
-          @message<< ('add ok')
+          @message = 'add ok'
           render json: [true,@message]
         }
       else
+        @message = "This form has following errors: <br />"
         format.html {render action: "edit"}
         format.json {
-          @message << @user.errors.full_messages.join(",")
+          @message << @user.errors.full_messages.join("<br />")
           render json: @message,status: :unprocessable_entity
         }
       end
@@ -90,10 +90,7 @@ class UsersController < ApplicationController
   #For html request: redirects to users index page (users_path)
   def destroy
     @user = User.find(params[:id])
-    puts "-----------------"
-    puts @user.inspect
-    puts @user.destroy
-    puts "-----------------"
+    @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully updated.' }
       format.json { render json: { status: 'success', data: @user } }

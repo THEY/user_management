@@ -1,8 +1,12 @@
- <%= simple_form_for @book do |f| %>
-  <%= f.input :email %><br />
-  <%= f.input :username %><br />
-  <%= f.input :first_name %><br />
-  <%= f.input :last_name %><br />
-  <%= f.association :roles, :as => :check_boxes %><br />
-  <%= f.button :submit %>
-<% end %>
+= simple_form_for @user do |f|
+  = f.input :email
+  %br/
+  = f.input :username
+  %br/
+  = f.input :first_name
+  %br/
+  = f.input :last_name
+  %br/
+  = f.association :roles, :as => :check_boxes
+  %br/
+  = f.button :submit
