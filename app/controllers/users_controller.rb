@@ -90,7 +90,10 @@ class UsersController < ApplicationController
   #For html request: redirects to users index page (users_path)
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    puts "-----------------"
+    puts @user.inspect
+    puts @user.destroy
+    puts "-----------------"
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully updated.' }
       format.json { render json: { status: 'success', data: @user } }

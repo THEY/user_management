@@ -132,6 +132,22 @@ describe UsersController do
     end
   end
 
+  describe "DELETE destroy" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+    
+    it "destroys the requested user" do
+      expect {
+        delete :destroy, {:id => @user.to_param}
+      }.to change(User, :count).by(-1)
+    end
+
+    it "redirects to the users list" do
+      delete :destroy, {:id => @user.to_param}
+      response.should redirect_to(users_url)
+    end
+  end
 
   
 end

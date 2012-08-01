@@ -1,2 +1,8 @@
-%h1 Users#edit
-%p Find me in app/views/users/edit.html.haml
+ <%= simple_form_for @book do |f| %>
+  <%= f.input :email %><br />
+  <%= f.input :username %><br />
+  <%= f.input :first_name %><br />
+  <%= f.input :last_name %><br />
+  <%= f.association :roles, :as => :check_boxes %><br />
+  <%= f.button :submit %>
+<% end %>
