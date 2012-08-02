@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :prepare_params,only: [:post_data,:update]
   before_filter :prepare_attributes,only: [:index]
   
   # this is the action called for sorting, searching and pulling data to index
@@ -30,11 +29,11 @@ class UsersController < ApplicationController
     end
   end
 
- #This method only respond to json as per requirement.
- #in case of error, the errors are joined and shown on the UI
+  #This method only respond to json as per requirement.
+  #in case of error, the errors are joined and shown on the UI
   def create
     if params["id"] == "_empty" || params["id"].blank?
-      @user = User.new(@user_params)
+      @user = User.new(params[:user])
       respond_to do |format|
         if @user.save
           format.json {
@@ -52,8 +51,8 @@ class UsersController < ApplicationController
     end
   end
 
- #This method only respond to html as per requirement.
- #in case of errors re-renders same template
+  #This method only respond to html as per requirement.
+  #in case of errors re-renders same template
   def edit
     @user = User.find(params[:id],include: :roles)
     @roles = Role.all
@@ -68,7 +67,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     respond_to do |format|
-      if @user.update_attributes(@user_params)
+      if @user.update_attributes(params[:user])
         format.html { redirect_to users_url, notice: 'User was successfully updated.' }
         format.json {
           @message = 'add ok'
@@ -98,19 +97,9 @@ class UsersController < ApplicationController
   end
   
   private
-#preparing current page and rows per page attributes to can be sent to pagination
+  #preparing current page and rows per page attributes to can be sent to pagination
   def prepare_attributes
     @current_page = params[:page] ? params[:page].to_i : 1
     @rows_per_page = params[:rows] ? params[:rows].to_i : 10
-  end
-
-#will be getting a different hash when called from html request hence created separated hash
-#TODO: try adding arrays to new and edit forms so can be saved as is without preparing.
-  def prepare_params
-    if params[:user]
-      @user_params = { id: params[:id], email: params[:user][:email],username: params[:user][:username], first_name: params[:user][:first_name],last_name: params[:user][:last_name] ,role_ids: params[:user][:role_ids]}
-    else
-      @user_params = { id: params[:id], email: params[:email],username: params[:username], first_name: params[:first_name],last_name: params[:last_name]}
-    end
   end
 end
