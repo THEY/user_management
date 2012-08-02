@@ -16,4 +16,5 @@
 /nbproject
 config/database.yml
 config/database.yml.example
+config/environments/production.rb.example
 config/environments/production.rb
