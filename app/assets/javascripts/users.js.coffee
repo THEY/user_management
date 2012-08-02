@@ -20,28 +20,37 @@ jQuery ->
           width:55
         }
         {
-          name:'email'
+          name:'user[email]'
           index:'users.email'
           width:200
           editable:true
+          editrules:
+            required:true
+            email: true
         }
         {
-          name:'username'
+          name:'user[username]'
           index:'users.username'
           width:110
           editable:true
+          editrules:
+            required:true
         }
         {
-          name:'first_name'
+          name:'user[first_name]'
           index:'users.first_name'
           width:100
           editable:true
+          editrules:
+            required:true
         }
         {
-          name:'last_name'
+          name:'user[last_name]'
           index:'users.last_name'
           width:120
           editable:true
+          editrules:
+            required:true
         }
         {
           name: "roles.name"

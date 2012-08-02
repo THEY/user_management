@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe UsersController do
+
+  def valid_attributes
+    { email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name}
+  end
   before(:each) do
     @users =[]
     ['a','b'].each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user",roles: [FactoryGirl.create(:role,name: "#{i}_role")]) }
@@ -31,12 +35,12 @@ describe UsersController do
 
     it 'should return success' do
       lambda {
-        xhr :post, :post_data, format: "json", email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, oper: :add
+        xhr :post, :post_data, format: "json", user: valid_attributes,  oper: :add
       }.should change(User, :count).by(1)
     end
 
     it "assigns a newly created user as @user" do
-      xhr :post, :post_data, format: "json", email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, oper: :add
+      xhr :post, :post_data, format: "json", user: valid_attributes, oper: :add
       assigns(:user).should be_a(User)
       assigns(:user).should be_persisted
     end
@@ -61,12 +65,12 @@ describe UsersController do
       @user = FactoryGirl.create(:user)
     end
     it "expect record to be updated successfully" do
-      xhr :post, :post_data, format: "json", email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, oper: :edit, id: @user.id
+      xhr :post, :post_data, format: "json", user: valid_attributes, oper: :edit, id: @user.id
       response.should be_success
     end
 
     it "expect record not to be updated successfully if data is wrong" do
-      xhr :post, :post_data, format: "json", email: Faker::Internet.email, username: "", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, oper: :edit, id: @user.id
+      xhr :post, :post_data, format: "json", user: {email: "false_email"}, oper: :edit, id: @user.id
       response.should_not be_success
     end
 
@@ -100,7 +104,7 @@ describe UsersController do
       end
 
       it "redirects to the user" do
-        put :update, {id: @user.id, user: @user.attributes}
+        put :update, {id: @user.id, user: valid_attributes}
         response.should redirect_to(users_path)
       end
     end
@@ -112,7 +116,7 @@ describe UsersController do
       end
 
       it "re-renders the 'edit' template" do
-        put :update, id: @user.id
+        put :update, {id: @user.id ,user: {email: "test"}}
         response.should render_template("edit")
       end
     end
