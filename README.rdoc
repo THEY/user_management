@@ -3,12 +3,12 @@
 This is a simple system for managing users and their roles. A user can have zero to many roles and a role can have many users. 
 
 When accessing the application the user will be presented with a grid that contains all of the users. The grid will have the following columns
-User ID
-Username
-Email Address
-First Name
-Last Name
-Roles (represented as comma-delimited list)
+* User ID
+* Username
+* Email Address
+* First Name
+* Last Name
+* Roles (represented as comma-delimited list)
 
 The grid have the following functionality implemented using JQuery/AJAX:
 1. Support pagination
@@ -24,10 +24,10 @@ Email Address and role association.
 A user can also be deleted through this page.
 
 Requirements
-Rails 3.2.6
-Ruby 1.9.2
-jqGrid
-CoffeeScript/JQuery
+1. Rails 3.2.6
+2. Ruby 1.9.2
+3. jqGrid
+4. CoffeeScript/JQuery
 
 == Demo url 
  The application is hosted on Heroku at http://jqgrid-rails3.herokuapp.com
@@ -56,3 +56,9 @@ CoffeeScript/JQuery
       
 * For more information on jqGrid: 
      http://www.trirand.com/blog/
+
+7. For running in development mode
+    Follow 1-4 points and give command 
+    rake db:setup
+    
+
