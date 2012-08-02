@@ -1,18 +1,14 @@
 require 'spec_helper'
 
 describe UsersController do
-  def valid_attributes
-    {email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name}
-  end
-  
   before(:each) do
     @users =[]
     ['a','b'].each{ |i| @users << FactoryGirl.create(:user, email: "#{i}@#{i}domain.com",username: "#{i}_user",roles: [FactoryGirl.create(:role,name: "#{i}_role")]) }
   end
-  
+
   describe "GET 'index' format: json" do
     it "returns http success" do
-      get 'index'
+      get :index
       response.should be_success
     end
   end
@@ -40,7 +36,7 @@ describe UsersController do
     end
 
     it "assigns a newly created user as @user" do
-      xhr :post, :post_data, format: "json",email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, oper: :add
+      xhr :post, :post_data, format: "json", email: Faker::Internet.email, username: "abcxyz", first_name: Faker::Name.first_name,last_name: Faker::Name.last_name, oper: :add
       assigns(:user).should be_a(User)
       assigns(:user).should be_persisted
     end
@@ -49,22 +45,12 @@ describe UsersController do
 
   describe "with in-valid params" do
     it "should not create record with invalid username" do
-      xhr :post, :post_data, format: "json", :username => ' ',:oper => :add
-      response.should_not be_success
-    end
-    
-    it "should have record with invalid email" do
-      xhr :post, :post_data, format: "json", :email => '',:oper => :add
+      xhr :post, :post_data, format: "json", :username => '',:oper => :add
       response.should_not be_success
     end
 
-    it "should have record with invalid first_name" do
-      xhr :post, :post_data, format: "json", :first_name => '',:oper => :add
-      response.should_not be_success
-    end
-    
-    it "should have record with invalid last_name" do
-      xhr :post, :post_data, format: "json", :last_name => '',:oper => :add
+    it "should have record with invalid email" do
+      xhr :post, :post_data, format: "json", :email => '',:oper => :add
       response.should_not be_success
     end
 
@@ -85,19 +71,19 @@ describe UsersController do
     end
 
     it "expect record to be deleted" do
-      xhr :post, :post_data, format: "json",:oper => :del,:id => @user.id
+      xhr :post, :post_data, format: "json",:oper => :del, :id => @user.id
       response.should be_success
     end
 
   end
 
   describe "GET edit" do
-    before(:each) do
+    before do
       @user = FactoryGirl.create(:user)
     end
-    
+
     it "assigns the requested user as @user" do
-      get :edit, {:id => @user.to_param}
+      get :edit, id: @user.id
       assigns(:user).should eq(@user)
     end
   end
@@ -106,27 +92,27 @@ describe UsersController do
     before(:each) do
       @user = FactoryGirl.create(:user)
     end
-    
+
     describe "with valid params" do
       it "assigns the requested user as @user" do
-        put :update, {:id => @user.to_param, :user => valid_attributes}
+        put :update, id: @user.id
         assigns(:user).should eq(@user)
       end
 
       it "redirects to the user" do
-        put :update, {:id => @user.to_param, :user => valid_attributes}
+        put :update, {id: @user.id, user: @user.attributes}
         response.should redirect_to(users_path)
       end
     end
 
     describe "with invalid params" do
       it "assigns the user as @user" do
-        put :update, {:id => @user.to_param, :user => {}}
+        put :update, id: @user.id
         assigns(:user).should eq(@user)
       end
 
       it "re-renders the 'edit' template" do
-        put :update, {:id => @user.to_param, :user => {}}
+        put :update, id: @user.id
         response.should render_template("edit")
       end
     end
@@ -136,18 +122,17 @@ describe UsersController do
     before(:each) do
       @user = FactoryGirl.create(:user)
     end
-    
+
     it "destroys the requested user" do
       expect {
-        delete :destroy, {:id => @user.to_param}
+        delete :destroy, id: @user.id
       }.to change(User, :count).by(-1)
     end
 
     it "redirects to the users list" do
-      delete :destroy, {:id => @user.to_param}
+      delete :destroy, id: @user.id
       response.should redirect_to(users_url)
     end
   end
 
-  
 end
