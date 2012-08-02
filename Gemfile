@@ -23,10 +23,7 @@ group :development do
   gem "rails_best_practices"
 end
 
-group :test, :development do
-  gem 'faker'
-end
-
+gem 'faker'
 gem "haml-rails"
 gem "will_paginate"
 gem "simple_form"
