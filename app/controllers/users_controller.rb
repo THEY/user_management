@@ -92,7 +92,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully updated.' }
+      format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
       format.json { render json: { status: 'success', data: @user } }
     end
   end

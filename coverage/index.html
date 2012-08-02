@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-01T14:52:43-04:00">2012-08-01T14:52:43-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-08-01T19:15:41-04:00">2012-08-01T19:15:41-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -34,7 +34,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         13.49
+         13.54
        </span>
     </span> hits/line)
   </h2>
@@ -72,11 +72,11 @@
       <tr>
         <td class="strong"><a href="#cb030c2abd07ab56dd8a7668c685e147115e9df7" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>115</td>
+        <td>116</td>
         <td>59</td>
         <td>59</td>
         <td>0</td>
-        <td>5.9</td>
+        <td>6.3</td>
       </tr>
       
       <tr>
@@ -142,7 +142,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.45
+         3.65
        </span>
     </span> hits/line)
   </h2>
@@ -180,11 +180,11 @@
       <tr>
         <td class="strong"><a href="#cb030c2abd07ab56dd8a7668c685e147115e9df7" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>115</td>
+        <td>116</td>
         <td>59</td>
         <td>59</td>
         <td>0</td>
-        <td>5.9</td>
+        <td>6.3</td>
       </tr>
       
     </tbody>
@@ -646,313 +646,313 @@
         <li class="covered" data-hits="4" data-linenumber="27">
           <span class="hits">4</span>
           
-          <code class="ruby">      @message = ''</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="28">
-          <span class="hits">4</span>
-          
           <code class="ruby">      update</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">    when 'del'</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="30">
+        <li class="covered" data-hits="2" data-linenumber="29">
           <span class="hits">2</span>
           
           <code class="ruby">      destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby"></code>
+          <code class="ruby"> #This method only respond to json as per requirement.</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby"> #This method only respond to json as per requirement.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
           <code class="ruby"> #in case of error, the errors are joined and shown on the UI</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="37">
+        <li class="covered" data-hits="12" data-linenumber="36">
           <span class="hits">12</span>
           
           <code class="ruby">    if params[&quot;id&quot;] == &quot;_empty&quot; || params[&quot;id&quot;].blank?</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="38">
+        <li class="covered" data-hits="12" data-linenumber="37">
           <span class="hits">12</span>
           
           <code class="ruby">      @user = User.new(@user_params)</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="39">
+        <li class="covered" data-hits="12" data-linenumber="38">
           <span class="hits">12</span>
           
           <code class="ruby">      respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="40">
+        <li class="covered" data-hits="12" data-linenumber="39">
           <span class="hits">12</span>
           
           <code class="ruby">        if @user.save</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="41">
+        <li class="covered" data-hits="4" data-linenumber="40">
           <span class="hits">4</span>
           
           <code class="ruby">          format.json {</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="42">
+        <li class="covered" data-hits="4" data-linenumber="41">
           <span class="hits">4</span>
           
           <code class="ruby">            @message[&quot;status&quot;] &lt;&lt; ('add ok')</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="43">
+        <li class="covered" data-hits="4" data-linenumber="42">
           <span class="hits">4</span>
           
           <code class="ruby">            render json: [true,@message]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">          }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="46">
+        <li class="covered" data-hits="8" data-linenumber="45">
           <span class="hits">8</span>
           
           <code class="ruby">          format.json {</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="47">
+        <li class="covered" data-hits="8" data-linenumber="46">
           <span class="hits">8</span>
           
           <code class="ruby">            @message[&quot;status&quot;] &lt;&lt; @user.errors.full_messages.join(&quot;&lt;br /&gt;&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="48">
+        <li class="covered" data-hits="8" data-linenumber="47">
           <span class="hits">8</span>
           
           <code class="ruby">            render json: @message,status: :unprocessable_entity</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby">          }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby"></code>
+          <code class="ruby"> #This method only respond to html as per requirement.</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
-          <code class="ruby"> #This method only respond to html as per requirement.</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
           <code class="ruby"> #in case of errors re-renders same template</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="59">
+        <li class="covered" data-hits="2" data-linenumber="58">
           <span class="hits">2</span>
           
           <code class="ruby">    @user = User.find(params[:id],include: :roles)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="60">
+        <li class="covered" data-hits="2" data-linenumber="59">
           <span class="hits">2</span>
           
           <code class="ruby">    @roles = Role.all</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="61">
+        <li class="covered" data-hits="2" data-linenumber="60">
           <span class="hits">2</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="62">
+        <li class="covered" data-hits="2" data-linenumber="61">
           <span class="hits">2</span>
           
           <code class="ruby">      format.html</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby">  #This method only respond to both html and json as per requirement.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="never" data-hits="" data-linenumber="66">
           
           
           <code class="ruby">  #For Json request: Errors are copied into sentence and shown on to the UI</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">  #For html request: in case of errors re-renders edit template</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="69">
+        <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="70">
+        <li class="covered" data-hits="12" data-linenumber="69">
           <span class="hits">12</span>
           
           <code class="ruby">    @user = User.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="71">
+        <li class="covered" data-hits="12" data-linenumber="70">
           <span class="hits">12</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="72">
+        <li class="covered" data-hits="12" data-linenumber="71">
           <span class="hits">12</span>
           
           <code class="ruby">      if @user.update_attributes(@user_params)</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="73">
+        <li class="covered" data-hits="10" data-linenumber="72">
           <span class="hits">10</span>
           
           <code class="ruby">        format.html { redirect_to users_url, notice: 'User was successfully updated.' }</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="74">
+        <li class="covered" data-hits="6" data-linenumber="73">
           <span class="hits">6</span>
           
           <code class="ruby">        format.json {</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="75">
+        <li class="covered" data-hits="2" data-linenumber="74">
           <span class="hits">2</span>
           
-          <code class="ruby">          @message&lt;&lt; ('add ok')</code>
+          <code class="ruby">          @message = 'add ok'</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="76">
+        <li class="covered" data-hits="2" data-linenumber="75">
           <span class="hits">2</span>
           
           <code class="ruby">          render json: [true,@message]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">        }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">      else</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="78">
+          <span class="hits">6</span>
+          
+          <code class="ruby">        @message = &quot;This form has following errors: &lt;br /&gt;&quot;</code>
         </li>
       
         <li class="covered" data-hits="10" data-linenumber="79">
@@ -970,7 +970,7 @@
         <li class="covered" data-hits="2" data-linenumber="81">
           <span class="hits">2</span>
           
-          <code class="ruby">          @message &lt;&lt; @user.errors.full_messages.join(&quot;,&quot;)</code>
+          <code class="ruby">          @message &lt;&lt; @user.errors.full_messages.join(&quot;&lt;br /&gt;&quot;)</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="82">
@@ -1033,32 +1033,32 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="92">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="6" data-linenumber="92">
+          <span class="hits">6</span>
           
           <code class="ruby">    @user = User.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="93">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="6" data-linenumber="93">
+          <span class="hits">6</span>
           
           <code class="ruby">    @user.destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="94">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="6" data-linenumber="94">
+          <span class="hits">6</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="95">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="10" data-linenumber="95">
+          <span class="hits">10</span>
           
           <code class="ruby">      format.html { redirect_to users_url, notice: 'User was successfully updated.' }</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="96">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="8" data-linenumber="96">
+          <span class="hits">8</span>
           
           <code class="ruby">      format.json { render json: { status: 'success', data: @user } }</code>
         </li>
@@ -1090,7 +1090,7 @@
         <li class="never" data-hits="" data-linenumber="101">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">#preparing current page and rows per page attributes to can be sent to pagination</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="102">
@@ -1123,55 +1123,61 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="never" data-hits="" data-linenumber="107">
+          
+          
+          <code class="ruby">#will be getting a different hash when called from html request hence created separated hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby">#TODO: try adding arrays to new and edit forms so can be saved as is without preparing.</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
           <code class="ruby">  def prepare_params</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="108">
+        <li class="covered" data-hits="26" data-linenumber="110">
           <span class="hits">26</span>
           
           <code class="ruby">    if params[:user]</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="109">
+        <li class="covered" data-hits="8" data-linenumber="111">
           <span class="hits">8</span>
           
           <code class="ruby">      @user_params = { id: params[:id], email: params[:user][:email],username: params[:user][:username], first_name: params[:user][:first_name],last_name: params[:user][:last_name] ,role_ids: params[:user][:role_ids]}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="18" data-linenumber="111">
+        <li class="covered" data-hits="18" data-linenumber="113">
           <span class="hits">18</span>
           
           <code class="ruby">      @user_params = { id: params[:id], email: params[:email],username: params[:username], first_name: params[:first_name],last_name: params[:last_name]}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="114">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="115">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="never" data-hits="" data-linenumber="116">
           
           
           <code class="ruby">end</code>

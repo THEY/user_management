@@ -1,3 +1,4 @@
+= link_to "Delete #{@user.username}'s account" , @user, confirm: 'Are you sure?', method: :delete
 = simple_form_for @user do |f|
   = f.input :email
   %br/
@@ -10,3 +11,4 @@
   = f.association :roles, :as => :check_boxes
   %br/
   = f.button :submit
+= link_to "Delete #{@user.username}'s account" , @user, confirm: 'Are you sure?', method: :delete
